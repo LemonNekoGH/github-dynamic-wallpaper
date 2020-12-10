@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        img {
+            width: 80%;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        body {
+            height: 100%;
+            background: #0d1117;
+        }
+
+        .time {
+            padding-top: 37vh;
+            padding-left: 25vw;
+            height: 100%;
+            font-size: 8vw;
+            color: #FFF;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="time">
+        <code id="time">This is time.</code>
+    </div>
+    <img src="github.svg"></img>
+    <script src="moment.js"></script>
+    <script>
+        const timeText = document.querySelector("#time")
+        setInterval(() => {
+            timeText.innerText = moment().format("HH:mm:ss")
+        }, 1000)
+    </script>
+</body>
+
+</html>

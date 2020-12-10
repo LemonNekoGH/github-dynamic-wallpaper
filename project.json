@@ -1,0 +1,26 @@
+{
+	"contentrating" : "Everyone",
+	"description" : "一张可爱的Github插图",
+	"file" : "github-img1.html",
+	"general" : 
+	{
+		"properties" : 
+		{
+			"schemecolor" : 
+			{
+				"order" : 0,
+				"text" : "ui_browse_properties_scheme_color",
+				"type" : "color",
+				"value" : "1 1 1"
+			}
+		}
+	},
+	"preview" : "preview.jpg",
+	"tags" : [ "Technology" ],
+	"title" : "可可爱爱的Github插图",
+	"type" : "web",
+	"version" : 1,
+	"visibility" : "public",
+	"workshopid" : "2314699274",
+	"workshopurl" : "steam://url/CommunityFilePage/2314699274"
+}
