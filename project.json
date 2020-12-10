@@ -1,26 +1,57 @@
 {
-	"contentrating" : "Everyone",
-	"description" : "一张可爱的Github插图",
-	"file" : "github-img1.html",
-	"general" : 
-	{
-		"properties" : 
-		{
-			"schemecolor" : 
-			{
-				"order" : 0,
-				"text" : "ui_browse_properties_scheme_color",
-				"type" : "color",
-				"value" : "1 1 1"
+	"contentrating": "Everyone",
+	"description": "一张可爱的Github插图",
+	"file": "github-img1.html",
+	"general": {
+		"properties": {
+			"schemecolor": {
+				"order": 0,
+				"text": "ui_browse_properties_scheme_color",
+				"type": "color",
+				"value": "0 0 0"
+			},
+			"timeFontSize": {
+				"order": 101,
+				"text": "时间字体大小",
+				"type": "slider",
+				"value": 7,
+				"max": 8,
+				"min": 0
+			},
+			"timeFormat": {
+				"order": 100,
+				"text": "时间格式 Moment.js",
+				"type": "textinput",
+				"value": "HH:mm:ss"
+			},
+			"timexoffset": {
+				"fraction": false,
+				"max": 100,
+				"min": 0,
+				"order": 102,
+				"text": "时间的X轴偏移量",
+				"type": "slider",
+				"value": 26
+			},
+			"timeyoffset": {
+				"fraction": false,
+				"max": 100,
+				"min": 0,
+				"order": 103,
+				"text": "时间的Y轴偏移量",
+				"type": "slider",
+				"value": 37
 			}
 		}
 	},
-	"preview" : "preview.jpg",
-	"tags" : [ "Technology" ],
-	"title" : "可可爱爱的Github插图",
-	"type" : "Web",
-	"version" : 2,
-	"visibility" : "public",
-	"workshopid" : "2314699274",
-	"workshopurl" : "steam://url/CommunityFilePage/2314699274"
+	"preview": "preview.jpg",
+	"tags": [
+		"Technology"
+	],
+	"title": "可可爱爱的Github插图",
+	"type": "web",
+	"version": 2,
+	"visibility": "public",
+	"workshopid": "2314699274",
+	"workshopurl": "steam://url/CommunityFilePage/2314699274"
 }
