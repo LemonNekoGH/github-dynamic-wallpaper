@@ -21,7 +21,7 @@
 ### Steam创意工坊链接，国内用户可能需要魔法上网
 [网页端](https://steamcommunity.com/sharedfiles/filedetails/?id=2314699274)
 
-[steam](steam://url/CommunityFilePage/2314699274)
+直接用Steam打开请复制这个链接 steam://url/CommunityFilePage/2314699274
 
 ### 开放源代码许可证
 不不不，这次应该叫创作共用许可证
