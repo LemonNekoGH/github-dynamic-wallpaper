@@ -48,7 +48,10 @@
 <body>
     <div id="app" :style="background">
         <div class="time" :style="timeContainer">
-            <span id="time" :style="timeStyle">{{time}}</span>
+            <span v-if="!isHHmmss" id="time" :style="timeStyle">{{time}}</span>
+            <span v-else id="time" id="time" :style="timeStyle">
+                <span :style="hoursColor">{{hours}}</span><span :style="colonColor">:</span><span :style="minutesColor">{{minutes}}</span><span :style="colonColor">:</span><span :style="secondsColor">{{seconds}}</span>
+            </span>
         </div>
         <svg aria-hidden="true" viewBox="0 0 273 147" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
             fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -181,11 +184,21 @@
                     }
                 },
                 isDay: false,
-                interval: null
+                interval: null,
+                isHHmmss: false,
+                hours: "Hours",
+                minutes: "Minutes",
+                seconds: "Seconds",
+                hoursColor: "color: #f8d584",
+                minutesColor: "color: #f8d584",
+                secondsColor: "color: #f8d584",
+                colonColor: "color: #f8d584",
+                showingEasterEggs: false
             },
             mounted() {
                 const timer = () => {
                     this.time = moment().format(this.properties.timeFormat.value)
+                    this.isHHmmss = this.properties.timeFormat.value == "HH:mm:ss"
                     const hour = parseInt(moment().format("HH"))
                     this.isDay = hour < 18 && hour > 6
                     this.timeContainer = "padding-top: " + this.properties.timeyoffset.value + "vh;padding-left: "
@@ -196,6 +209,16 @@
                         this.setToNight()
                     } else if (this.properties.forcetheme.value == "auto") {
                         if (this.isDay) { this.setToDay() } else { this.setToNight() }
+                    }
+                    if (this.isHHmmss) {
+                        this.hours = moment().format("HH")
+                        this.minutes = moment().format("mm")
+                        this.seconds = moment().format("ss")
+                        if (moment().format("MM-DD") == "03-31" && (this.properties.forcetheme.value == "night" || (this.properties.forcetheme.value == "auto" && !this.isDay))) {
+                            this.showingEasterEggs = true
+                        } else {
+                            this.showingEasterEggs = false
+                        }
                     }
                 }
                 timer()
@@ -213,6 +236,10 @@
                     this.hillsColor = this.dayStrokeColor
                     this.towerColor = this.dayStrokeColor
                     this.background = "background: #fff"
+                    this.hoursColor = "color:" + this.dayStrokeColor
+                    this.minutesColor = "color:" + this.dayStrokeColor
+                    this.secondsColor = "color:" + this.dayStrokeColor
+                    this.colonColor = "color:" + this.dayStrokeColor
                 },
                 setToNight() {
                     this.starColor = "#e3b341"
@@ -225,6 +252,17 @@
                     this.hillsColor = "#da3633"
                     this.towerColor = "#db61a2"
                     this.background = "background: #0d1117;"
+                    if (this.showingEasterEggs) {
+                        this.hoursColor = "color: #5bcefa"
+                        this.colonColor = "color: #f5a9bb"
+                        this.minutesColor = "color: white"
+                        this.secondsColor = "color: #5bcefa"
+                    } else {
+                        this.hoursColor = "color: #f8d584"
+                        this.colonColor = "color: #f8d584"
+                        this.minutesColor = "color: #f8d584"
+                        this.secondsColor = "color: #f8d584"
+                    }
                 }
             }
         })
