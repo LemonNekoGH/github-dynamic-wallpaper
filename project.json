@@ -1,9 +1,28 @@
 {
 	"contentrating": "Everyone",
-	"description": "一张可爱的Github插图",
+	"description": "一张可爱的Github插图，自带时间的哦",
 	"file": "github-img1.html",
 	"general": {
 		"properties": {
+			"forcetheme": {
+				"options": [
+					{
+						"label": "自动",
+						"value": "auto"
+					},
+					{
+						"label": "白天",
+						"value": "day"
+					},
+					{
+						"label": "夜晚",
+						"value": "night"
+					}
+				],
+				"order": 105,
+				"text": "主题",
+				"type": "combo"
+			},
 			"schemecolor": {
 				"order": 0,
 				"text": "ui_browse_properties_scheme_color",
@@ -13,14 +32,12 @@
 			"timeFontSize": {
 				"order": 101,
 				"text": "时间字体大小",
-				"type": "slider",
-				"value": 7,
-				"max": 8,
-				"min": 0
+				"type": "textinput",
+				"value": "7"
 			},
 			"timeFormat": {
 				"order": 100,
-				"text": "时间格式 Moment.js",
+				"text": "时间格式（Moment.js实现）",
 				"type": "textinput",
 				"value": "HH:mm:ss"
 			},
@@ -50,7 +67,7 @@
 	],
 	"title": "可可爱爱的Github插图",
 	"type": "web",
-	"version": 2,
+	"version": 3,
 	"visibility": "public",
 	"workshopid": "2314699274",
 	"workshopurl": "steam://url/CommunityFilePage/2314699274"

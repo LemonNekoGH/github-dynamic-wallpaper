@@ -117,29 +117,51 @@
                 background: "background: #0d1117",
                 timeContainer: "padding-top: 37vh;padding-left: 26vw",
                 properties: {
-                    "schemecolor":
-                    {
+                    "forcetheme": {
+                        "condition": "isforcetheme.value=true",
+                        "options": [
+                            {
+                                "label": "自动",
+                                "value": "auto"
+                            },
+                            {
+                                "label": "白天",
+                                "value": "day"
+                            },
+                            {
+                                "label": "夜晚",
+                                "value": "night"
+                            }
+                        ],
+                        "order": 105,
+                        "text": "强制使用的主题是",
+                        "type": "combo"
+                    },
+                    "isforcetheme": {
+                        "order": 104,
+                        "text": "强制使用日/夜间主题",
+                        "type": "bool",
+                        "value": false
+                    },
+                    "schemecolor": {
                         "order": 0,
                         "text": "ui_browse_properties_scheme_color",
                         "type": "color",
                         "value": "0 0 0"
                     },
-                    "timeFontSize":
-                    {
+                    "timeFontSize": {
                         "order": 101,
                         "text": "时间字体大小",
                         "type": "textinput",
                         "value": "7"
                     },
-                    "timeFormat":
-                    {
+                    "timeFormat": {
                         "order": 100,
                         "text": "时间格式（Moment.js实现）",
                         "type": "textinput",
                         "value": "HH:mm:ss"
                     },
-                    "timexoffset":
-                    {
+                    "timexoffset": {
                         "fraction": false,
                         "max": 100,
                         "min": 0,
@@ -148,8 +170,7 @@
                         "type": "slider",
                         "value": 26
                     },
-                    "timeyoffset":
-                    {
+                    "timeyoffset": {
                         "fraction": false,
                         "max": 100,
                         "min": 0,
@@ -158,42 +179,53 @@
                         "type": "slider",
                         "value": 37
                     }
-                }
+                },
+                isDay: false,
+                interval: null
             },
             mounted() {
-                let isDay = false;
                 const timer = () => {
                     this.time = moment().format(this.properties.timeFormat.value)
                     const hour = parseInt(moment().format("HH"))
-                    isDay = hour < 18 && hour > 6
+                    this.isDay = hour < 18 && hour > 6
                     this.timeContainer = "padding-top: " + this.properties.timeyoffset.value + "vh;padding-left: "
                         + this.properties.timexoffset.value + "vw"
-                    if (isDay) {
-                        this.starColor = this.dayStrokeColor
-                        this.treeColor = this.dayStrokeColor
-                        this.timeStyle = "color:" + this.dayStrokeColor
-                            + ";font-size:" + this.properties.timeFontSize.value + "vw"
-                        this.bushColor = this.dayStrokeColor
-                        this.gitColor = this.dayStrokeColor
-                        this.cloudColor = this.dayStrokeColor
-                        this.hillsColor = this.dayStrokeColor
-                        this.towerColor = this.dayStrokeColor
-                        this.background = "background: #fff"
-                    } else {
-                        this.starColor = "#e3b341"
-                        this.treeColor = "#3fb950"
-                        this.timeStyle = "color:  #f8d584"
-                            + ";font-size:" + this.properties.timeFontSize.value + "vw"
-                        this.bushColor = "#f08831"
-                        this.gitColor = "#6e40c9"
-                        this.cloudColor = "#388bfd"
-                        this.hillsColor = "#da3633"
-                        this.towerColor = "#db61a2"
-                        this.background = "background: #0d1117;"
+                    if (this.properties.forcetheme.value == "day") {
+                        this.setToDay()
+                    } else if (this.properties.forcetheme.value == "night") {
+                        this.setToNight()
+                    } else if (this.properties.forcetheme.value == "auto") {
+                        if (this.isDay) { this.setToDay() } else { this.setToNight() }
                     }
                 }
                 timer()
-                setInterval(timer, 1000)
+                this.interval = setInterval(timer, 1000)
+            },
+            methods: {
+                setToDay() {
+                    this.starColor = this.dayStrokeColor
+                    this.treeColor = this.dayStrokeColor
+                    this.timeStyle = "color:" + this.dayStrokeColor
+                        + ";font-size:" + this.properties.timeFontSize.value + "vw"
+                    this.bushColor = this.dayStrokeColor
+                    this.gitColor = this.dayStrokeColor
+                    this.cloudColor = this.dayStrokeColor
+                    this.hillsColor = this.dayStrokeColor
+                    this.towerColor = this.dayStrokeColor
+                    this.background = "background: #fff"
+                },
+                setToNight() {
+                    this.starColor = "#e3b341"
+                    this.treeColor = "#3fb950"
+                    this.timeStyle = "color:  #f8d584"
+                        + ";font-size:" + this.properties.timeFontSize.value + "vw"
+                    this.bushColor = "#f08831"
+                    this.gitColor = "#6e40c9"
+                    this.cloudColor = "#388bfd"
+                    this.hillsColor = "#da3633"
+                    this.towerColor = "#db61a2"
+                    this.background = "background: #0d1117;"
+                }
             }
         })
         window.wallpaperPropertyListener = {
@@ -209,6 +241,9 @@
                 }
                 if (properties.timeyoffset) {
                     vue.properties.timeyoffset = properties.timeyoffset
+                }
+                if (properties.forcetheme) {
+                    vue.properties.forcetheme = properties.forcetheme
                 }
             }
         }
