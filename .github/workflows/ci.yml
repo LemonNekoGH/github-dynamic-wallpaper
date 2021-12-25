@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - for-normal-webpage
+  workflow_dispatch:
 
 jobs:
   pages:
