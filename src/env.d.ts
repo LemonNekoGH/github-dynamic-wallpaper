@@ -6,3 +6,11 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
+
+declare interface Window {
+  wallpaperPropertyListener: {
+    applyUserProperties: (p: {
+      forcetheme: "auto" | "day" | "night"
+    }) => void
+  } | undefined
+}

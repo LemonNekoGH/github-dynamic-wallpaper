@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "pnpm build:wallpaper && echo github-dynamic-wallpaper.lemonneko.moe > dist/CNAME",
-    "build:wallpaper": "vue-tsc --noEmit && vite build",
+    "build": "vue-tsc --noEmit && vite build && echo github-dynamic-wallpaper.lemonneko.moe > dist/CNAME",
+    "build:wallpaper": "vue-tsc --noEmit && vite build --mode wallpaper && cp project.json dist/project.json && cp preview.jpg dist/preview.jpg",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/node": "^20.9.0",
     "@vueuse/core": "^10.5.0",
     "@vueuse/shared": "^10.5.0",
     "moment": "^2.29.4",

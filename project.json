@@ -1,0 +1,42 @@
+{
+	"contentrating" : "Everyone",
+	"description" : "这是一个动态壁纸，其中包含一个来自 GitHub 的插图，自带时间",
+	"file" : "index.html",
+	"general" : 
+	{
+		"properties" : 
+		{
+			"forcetheme" : 
+			{
+				"options" : 
+				[
+					{
+						"label" : "自动",
+						"value" : "auto"
+					},
+					{
+						"label" : "白天",
+						"value" : "day"
+					},
+					{
+						"label" : "夜晚",
+						"value" : "night"
+					}
+				],
+				"order" : 105,
+				"text" : "主题",
+				"type" : "combo"
+			}
+		}
+	},
+	"preview" : "preview.jpg",
+	"ratingsex" : "none",
+	"ratingviolence" : "none",
+	"tags" : [ "Technology" ],
+	"title" : "可可爱爱的 GitHub 插图",
+	"type" : "web",
+	"version" : 3,
+	"visibility" : "public",
+	"workshopid" : "2314699274",
+	"workshopurl" : "steam://url/CommunityFilePage/2314699274"
+}

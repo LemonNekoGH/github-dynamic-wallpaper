@@ -1,11 +1,25 @@
-# Vue 3 + Typescript + Vite
+# github-dynamic-wallpaper <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a>
+这是一个动态壁纸，其中包含一个来自 GitHub 的插图，自带时间
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 效果
+夜晚主题
 
-## Recommended IDE Setup
+![](./preview-night.png)
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+白天主题
 
-## Type Support For `.vue` Imports in TS
+![](./preview-day.png)
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+## 可自定义选项
+### 主题
+- 自动
+- 白天
+- 夜晚
+
+### Steam创意工坊链接，国内用户可能需要魔法上网
+[网页端](https://steamcommunity.com/sharedfiles/filedetails/?id=2314699274)
+
+如果希望直接用 Steam 打开，请复制这个链接 steam://url/CommunityFilePage/2314699274
+
+### 开放源代码许可证
+本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
