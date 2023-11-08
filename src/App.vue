@@ -74,6 +74,7 @@
 </template>
 
 <script setup lang="ts">
+import { useIntervalFn } from '@vueuse/core';
 import moment from 'moment'
 import { computed, ref } from 'vue';
 
@@ -82,7 +83,7 @@ const addPrefix0 = (num: number) => {
   if (num < 10) {
     return "0" + num
   } else {
-    return num
+    return "" + num
   }
 }
 // 获取时间
@@ -120,7 +121,7 @@ const weekDay = computed(() => {
 })
 // 是否是白天
 const isDayTime = computed(() => {
-  return hour.value >= 6 && hour.value < 18
+  return parseInt(hour.value) >= 6 && parseInt(hour.value) < 18
 })
 // 背景颜色
 const backgroundColor = computed(() => {
@@ -158,13 +159,11 @@ const gitColor = computed(() => {
 const fontColor = computed(() => {
   return isDayTime.value ? '#d1d5da' : 'rgb(248, 213, 132)'
 })
-// 每秒自动更新时间
-const timer = () => {
-  time.value = moment()
-}
 
-timer()
-setInterval(timer, 1000)
+// 每秒自动更新时间
+useIntervalFn(() => {
+  time.value = moment()
+}, 1000)
 </script>
 
 <style>
